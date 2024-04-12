@@ -1,5 +1,9 @@
 # Use an official Python runtime as a parent image
-FROM python:3.9-slim-buster
+FROM python:3.9-slim
+
+# Set environment variables
+ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE 1
 
 # Set the working directory in the container
 WORKDIR /app
@@ -17,4 +21,4 @@ COPY . .
 EXPOSE 8000
 
 # Command to run the Django server
-CMD python manage.py runserver
+CMD ["python", "manage.py", "runserver"]
