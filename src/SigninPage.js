@@ -11,8 +11,9 @@ import Box from '@mui/material/Box'
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
 import { useNavigate } from 'react-router-dom'
+import { login } from './services'
+import {errorHandler, successHandler} from './components/toasts'
 
 function Copyright(props) {
   return (
@@ -32,20 +33,26 @@ function Copyright(props) {
   )
 }
 
-// TODO remove, this demo shouldn't need to reset the theme.
-
-const defaultTheme = createTheme()
-
 export default function SignIn() {
   const navigate = useNavigate()
-  const handleSubmit = (event) => {
+  
+  const handleSubmit = async (event) => {
     event.preventDefault()
-    const data = new FormData(event.currentTarget)
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    })
-    navigate('/')
+    try {
+      const data = new FormData(event.currentTarget)
+      const res = await login({
+        email: data.get('email'),
+        password: data.get('password'),
+      })
+      console.log(res)
+      localStorage.setItem('jtpToken', res.data.access)
+      successHandler('Logged in!')
+      navigate('/')
+    } catch(e) {
+      console.log(e)
+      errorHandler('Error while logging in')
+    }
+   
   }
 
   return (

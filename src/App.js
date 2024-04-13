@@ -6,6 +6,7 @@ import Results from "./components/Results";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import MainRouter from "./MainRouter";
+import { ToastContainer } from 'react-toastify';
 import Grid from "@mui/material/Grid";
 
 const theme = createTheme({
@@ -29,6 +30,17 @@ const theme = createTheme({
 function App() {
     return (
         <>
+        {/* <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      /> */}
             <ThemeProvider theme={theme}>
                 <Router>
                     <MainRouter />

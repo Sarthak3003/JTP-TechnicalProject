@@ -10,12 +10,12 @@ const HomePage = () => {
     <div>
       <Navbar />
       <Grid container spacing={2}>
-        <Grid item xs={6}>
+        <Grid item xs={12}>
           <Form />
         </Grid>
-        <Grid item xs={6}>
+        {/* <Grid item xs={6}>
           <Results />
-        </Grid>
+        </Grid> */}
       </Grid>
     </div>
   )
