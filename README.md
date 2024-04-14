@@ -80,11 +80,38 @@ This dataset was build by augmenting datasets of rainfall, climate and fertilize
 **Data fields**
 - N : ratio of Nitrogen content in soil
 - P : ratio of Phosphorous content in soil
-K : ratio of Potassium content in soil
-temperature - temperature in degree Celsius
-humidity - relative humidity in %
-ph - ph value of the soil
-rainfall - rainfall in mm
+- K : ratio of Potassium content in soil
+- temperature : temperature in degree Celsius
+- humidity : relative humidity in %
+- ph : ph value of the soil
+- rainfall : rainfall in mm
+
+| Label       | Count |
+| :---------- | :---- |
+| rice        | 100   |
+| maize       | 100   |
+| jute        | 100   |
+| cotton      | 100   |
+| Coconut     | 100   |
+| papaya      | 100   |
+| orange      | 100   |
+| apple       | 100   |
+| muskmelon   | 100   |
+| watermelon  | 100   |
+| grapes      | 100   |
+| mango       | 100   |
+| banana      | 100   |
+| pomegranate | 100   |
+| lentil      | 100   |
+| blackgram   | 100   |
+| mungbean    | 100   |
+| mothbeans   | 100   |
+| pigeonpeas  | 100   |
+| kidneybeans | 100   |
+| chickpea    | 100   |
+| coffee      | 100   |
+
+
 
 ## API Documentation
 
@@ -96,7 +123,7 @@ Now, let's get our website up and running!
 
 #### Before Starting
 
-The backend of the website which is built on Django Rest Framework will require a `.env` file. This file will contain the "SECRET_KEY" of Django Rest Framework as well as
+The backend of the website which is built on Django Rest Framework will require a `.env` file. This file will contain the "SECRET_KEY" of Django Rest Framework as well as MongoDB connection string.
 
 ### Installation
 
