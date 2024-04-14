@@ -132,7 +132,6 @@ DATABASES = {
         'NAME': 'JTP',
         'CLIENT': {
             'host' : env('MONGO_DB_CONNECTION_STRING')
-            # 'host' : "mongodb://mongo_db:27018"
         }
     }
 }
