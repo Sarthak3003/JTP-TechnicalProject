@@ -1,10 +1,12 @@
 # Imports
-import pickle
-import numpy as np
 import pandas as pd
-from sklearn.naive_bayes import GaussianNB
+import numpy as np
+from scipy.stats import norm
+import pickle
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
+
+# from asset.classifier import CustomGaussianNB
 
 crop_data = pd.read_csv("../data/Crop_recommendation.csv")
 
@@ -33,6 +35,34 @@ crop_label = {
     "coffee": 22,
 }
 
+class CustomGaussianNB:
+    def __init__(self):
+        self.classes = None
+        self.mean = {}
+        self.std = {}
+        self.priors = {}
+
+    def fit(self, X, y):
+
+        self.classes = np.unique(y)
+
+        for cls in self.classes:
+            cls_data = X[y == cls]
+            self.mean[cls] = np.mean(cls_data, axis=0)
+            self.std[cls] = np.std(cls_data, axis=0)
+            self.priors[cls] = len(cls_data) / len(X)
+
+    def predict(self, X):
+        predictions = []
+        for x in X:
+            posteriors = []
+            for cls in self.classes:
+                prior = self.priors[cls]
+                likelihood = np.prod(norm.pdf(x, loc=self.mean[cls], scale=self.std[cls]))
+                posterior = prior * likelihood
+                posteriors.append(posterior)
+            predictions.append(self.classes[np.argmax(posteriors)])
+        return predictions
 
 # Map the crop label to the crop data
 crop_data["number"] = crop_data["label"].map(crop_label)
@@ -57,19 +87,27 @@ sc.fit(X_train)
 X_train = sc.transform(X_train)
 X_test = sc.transform(X_test)
 
-rfc = GaussianNB()
-rfc.fit(X_train,Y_train)
+model = CustomGaussianNB()
+model.fit(X_train,Y_train)
+
+pred = model.predict(X_test)
+
+# Evaluate accuracy
+from sklearn.metrics import accuracy_score
+accuracy = accuracy_score(Y_test, pred)
+print("Accuracy:", accuracy)
+
 
 
 def recommendation(N, P, k, temperature, humidity, ph, rainfall):
-    rfc = GaussianNB()
+    model = CustomGaussianNB()
     features = np.array([[N, P, k, temperature, humidity, ph, rainfall]])
     transformed_features = ms.fit_transform(features)
     transformed_features = sc.fit_transform(transformed_features)
-    rfc.fit(X_train, Y_train)
-    prediction = rfc.predict(transformed_features)
+    model.fit(X_train, Y_train)
+    prediction = model.predict(transformed_features)
 
     return prediction
 
 
-pickle.dump(rfc, open("../model/model.pkl", "wb"))
+pickle.dump(model, open("../model/model.pkl", "wb"))
