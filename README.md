@@ -16,10 +16,12 @@ This crop recommendation software operates within the broader context of precisi
       - [Docker (Optional)](#docker-optional)
     - [Dependencies](#dependencies)
   - [Description](#description)
+  - [Built With](#built-with)
   - [Preview](#preview)
   - [Dataset](#dataset)
   - [API Documentation](#api-documentation)
   - [Running the Application](#running-the-application)
+      - [Before Starting](#before-starting)
     - [Installation](#installation)
     - [Running via Docker](#running-via-docker)
     - [Running individually](#running-individually)
@@ -51,9 +53,20 @@ Our website relies on some other software packages to work properly. We'll insta
 
 ## Description
 
-Our website helps farmers decide which crops to plant based on factors like soil type, climate, and location. It's like having a virtual agricultural advisor at your fingertips!
+Our website helps farmers decide which crops to plant based on factors like Nitrogen level, Phosphorus level, Potassium level, Temperature, Humidity, pH level, and Rainfall. It's like having a virtual agricultural advisor at your fingertips!
 
 [![JTP.png](https://i.postimg.cc/Bb9KbNR1/JTP.png)](https://postimg.cc/JDxnd3r1)
+
+In the above user flow diagram, the user will first needs to log in to the website. If the user is not registered, then the user needs to create an account.
+
+Once the account is created, the user will have access to the crop recommendation and ideal composition services. The user can choose any service and fill the respective form.
+
+## Built With
+
+* [React.Js](https://react.dev/) - The web framework used for frontend
+* [Django Rest Framework](https://www.django-rest-framework.org/) - The web framework used for backend
+* [MongoDB](https://www.mongodb.com/) - Used for database management
+* [Docker](https://www.docker.com/) - Used to test and deploy the website
 
 ## Preview
 
@@ -61,60 +74,74 @@ Our website helps farmers decide which crops to plant based on factors like soil
 
 ## Dataset
 
-[Describe the dataset used for crop recommendation, if applicable.]
+**Context**
+This dataset was build by augmenting datasets of rainfall, climate and fertilizer data available for India.
+
+**Data fields**
+- N : ratio of Nitrogen content in soil
+- P : ratio of Phosphorous content in soil
+K : ratio of Potassium content in soil
+temperature - temperature in degree Celsius
+humidity - relative humidity in %
+ph - ph value of the soil
+rainfall - rainfall in mm
 
 ## API Documentation
 
-[Provide information on how to use the API endpoints.]
+Detailed API documentation can be found here: [API Documentation](https://documenter.getpostman.com/view/18905408/2sA3Bj7Ygr)
 
 ## Running the Application
 
 Now, let's get our website up and running!
 
+#### Before Starting
+
+The backend of the website which is built on Django Rest Framework will require a `.env` file. This file will contain the "SECRET_KEY" of Django Rest Framework as well as
+
 ### Installation
 
 1. **Clone the repository:**
 
-    First, we need to download the files for our website onto our computer. Don't worry, it's easy! You just need to open a special program called a "command prompt" and type in some commands.
-    
-    ` git clone <repository_url> `
+First, we need to download the files for our website onto our computer. You just need to open command prompt and type in some commands.
+
+` git clone <repository_url> `
 
 
 2. **Navigate to the project directory:**
 
-    After cloning, we need to go to the folder where our website files are saved.
+After cloning, we need to go to the folder where our website files are saved.
 
-    ` cd crop-recommendation-website `
+` cd crop-recommendation-website `
 
 
 3. **Install backend dependencies:**
 
-    Next, we'll install some additional software that our website needs to work properly. This is done by typing a special command into the command prompt.
+Next, we'll install some additional modules that our website needs to work properly. To do this, run the following command in the command prompt.
 
-    - ` cd backend `
+- ` cd backend `
 
-    - ` pip install -r requirements.txt ` 
+- ` pip install -r requirements.txt ` 
 
-    **NOTE:** If the above command gives errors, try:
-    ` python -m pip install requirements.txt ` 
+**NOTE:** If the above command gives errors, try:
+` python -m pip install requirements.txt ` 
 
 
 4. **Install frontend dependencies:**
 
-    Our website also has some frontend software that needs to be installed.
+To install frontend dependencies, run the following command in the command prompt.
 
-    - ` cd frontend `
+- ` cd frontend `
 
-    - ` npm install ` 
+- ` npm install ` 
 
 
 ### Running via Docker
 
 1. **Build and run the Docker containers:**
 
-    If you installed Docker earlier, this step will be super easy! Just type in one command, and Docker will take care of the rest.
+If you installed Docker earlier, this step will be super easy! Just type in one command, and Docker will take care of the rest.
 
-    ` docker-compose up --build `
+` docker-compose up --build `
 
 
 Now, you should be able to see our website by typing `http://localhost:3000` into your web browser!
@@ -123,17 +150,17 @@ Now, you should be able to see our website by typing `http://localhost:3000` int
 
 1. **Start the backend server:**
 
-    If you prefer not to use Docker, that's okay too! We can start the backend server and frontend server separately.
+If you prefer not to use Docker, that's okay too! We can start the backend server and frontend server separately.
 
-    ` python manage.py runserver `
+` python manage.py runserver `
 
 
 2. **Start the frontend server:**
 
-    Open another command prompt window, and navigate to the `frontend` folder inside our project folder.
+Open another command prompt window, and navigate to the `frontend` folder inside our project folder.
 
-    ` cd frontend `
-    ` npm start ` 
+` cd frontend `
+` npm start ` 
 
 
 Now, you should be able to see our website by typing `http://localhost:3000` into your web browser!
