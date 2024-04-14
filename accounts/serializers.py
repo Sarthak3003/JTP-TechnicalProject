@@ -35,6 +35,5 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
         data.update({'user': self.user.username})
         data.update({'id': self.user.id})
         data.update({'email': self.user.email})
-        data.update({'phone_number': self.user.phone_number})
         return data
 

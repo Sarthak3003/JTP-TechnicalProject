@@ -17,6 +17,7 @@ urlpatterns = [
     path("api/token/", CustomTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
     path("recommendation/", recommendation, name="recommendation"),
+    path("ideal-val/", ideal_val, name="ideal_val"),
 ]
 
 router = DefaultRouter()

@@ -170,3 +170,26 @@ def recommendation(request):
 
         return Response(res)
 
+def get_ideal_values(label):
+    # Load dataset
+    dataset = pd.read_csv("data/Crop_recommendation.csv")
+
+    # Filter dataset based on label
+    filtered_data = dataset[dataset['label'] == label]
+
+    # Calculate mean values for other fields
+    ideal_values = filtered_data.drop(columns=['label']).mean().to_dict()
+
+    return ideal_values
+
+@api_view(['POST'])
+@permission_classes((permissions.IsAuthenticated,))
+def ideal_val(request):
+    if request.method == "POST":
+        data = request.data
+        item = data["crop"]
+        val = get_ideal_values(item)
+
+        res = {"status": 200, "message": val}
+
+        return Response(res)
