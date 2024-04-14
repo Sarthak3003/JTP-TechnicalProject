@@ -133,6 +133,8 @@ def recommendation(request):
         # Make the prediction
         pred = model.predict(prediction)
 
+        print(pred)
+
         label = {
             1: "Rice",
             2: "Maize",
@@ -158,15 +160,41 @@ def recommendation(request):
             22: "Coffee",
         }
 
+        images = {
+            "Rice": "https://i.ibb.co/TP9SkQk/rice.jpg",
+            "Maize": "https://i.ibb.co/2NjmQfq/maize.jpg",
+            "Jute": "https://i.ibb.co/c8f104K/jute.jpg",
+            "Cotton": "https://i.ibb.co/Fn3chGd/cotton.jpg",
+            "Coconut": "https://i.ibb.co/bR83XYg/coconut.webp",
+            "Papaya": "https://i.ibb.co/pzxJkNS/papaya.jpg",
+            "Orange": "https://i.ibb.co/f2Zh60y/orange.jpg",
+            "Apple": "https://i.ibb.co/fGwQDnS/apple.jpg",
+            "Muskmelon": "https://i.ibb.co/9h7KgFs/muskmelon.jpg",
+            "Watermelon": "https://i.ibb.co/52zx5y0/watermelon.webp",
+            "Grapes": "https://i.ibb.co/C1XKgpn/grapes.jpg",
+            "Mango": "https://i.ibb.co/StrS5Df/mango.jpg",
+            "Banana": "https://i.ibb.co/DQNrb9V/banana.jpg",
+            "Pomegranate": "https://i.ibb.co/my7HGSK/pomegranate.jpg",
+            "Lentil": "https://i.ibb.co/MkbTNLT/lentil.jpg",
+            "Blackgram": "https://i.ibb.co/YTNqfSG/blackgram.jpg",
+            "Mungbean": "https://i.ibb.co/Xx7PYQq/mungbean.jpg",
+            "Mothbeans": "https://i.ibb.co/60w9R9J/mothbeans.jpg",
+            "Pigeonpeas": "https://i.ibb.co/09Qbk1m/pigeonpeas.jpg",
+            "Kidneybeans": "https://i.ibb.co/0ycs461/kidneybeans.jpg",
+            "Chickpea": "https://i.ibb.co/41QdHsz/chickpea.jpg",
+            "Coffee": "https://i.ibb.co/ZxTJGZ0/coffee.jpg"
+        }
+
         if pred[0] in label:
             pred = label[pred[0]]
+            print(pred)
             response = (
                 f"Based on the information, {pred} would be the best crop to grow."
             )
         else:
             response = "No crop can be recommended based on the information provided."
 
-        res = {"status": 200, "message": response, "crop": pred}
+        res = {"status": 200, "message": response, "crop": pred, "image" : images[pred]}
 
         return Response(res)
 
@@ -190,6 +218,31 @@ def ideal_val(request):
         item = data["crop"]
         val = get_ideal_values(item)
 
-        res = {"status": 200, "message": val}
+        res = {"status": 200, "crop": item, "message": val}
 
         return Response(res)
+
+@api_view(['GET'])
+@permission_classes((permissions.AllowAny,))
+def populate_database(request):
+    if (request.method == 'GET'):
+
+        from accounts.serializers import UserSerializer
+
+        data = {
+                "email": "test1@gmail.com",
+                "password": "pass1234"
+            }
+
+        serializer = UserSerializer(data=data)
+        if serializer.is_valid():
+            serializer.save()
+            res = {
+                "status": "success",
+                "msg": "Data added succesfully"
+                }
+            return Response(res)
+        return Response({
+            "status": "failure",
+            "msg": serializer.errors
+            })

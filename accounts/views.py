@@ -23,9 +23,15 @@ from django.contrib.auth.forms import PasswordChangeForm
 
 # Create your views here.
 
+class CustomizedUserPermission(IsAuthenticated):
+    def has_permission(self, request, view):
+        if view.action == 'create':
+            return True
+        return super().has_permission(request, view) 
+
 class UserViewSet(viewsets.ModelViewSet):
 
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (CustomizedUserPermission, )
     serializer_class = UserSerializer
     queryset = get_user_model().objects.all()
 
