@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  mongo_db:
+    image: mongo:latest
+    ports:
+      - 27018:27017
+    volumes:
+      - mongo_db:/data/db
+      
+  backend:
+    build: ./backend
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:80"
+    container_name: backend
+    volumes:
+      - .:/backend
+    ports:
+      - "80:80"
+    depends_on:
+      - mongo_db
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "3000:3000"
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
+  
+volumes:
+  mongo_db: {}
