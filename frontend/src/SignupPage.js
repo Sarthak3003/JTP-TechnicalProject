@@ -53,7 +53,7 @@ export default function SignInSide() {
       localStorage.setItem('jtpToken', res.data.access)
       successHandler('Registered!')
       setLoad(false)
-      navigate('/')
+      navigate('/login')
     } catch (e) {
       console.log(e)
       errorHandler('Error while registering')
