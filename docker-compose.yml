@@ -2,12 +2,12 @@ version: '3'
 
 services:
   mongo_db:
-    image: mongo:latest
+    image: mongo
     ports:
-      - 27018:27017
+      - "27017:27017"
     volumes:
-      - mongo_db:/data/db
-      
+      - ./mongo_db:/data/db
+
   backend:
     build: ./backend
     command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
@@ -16,8 +16,6 @@ services:
       - .:/backend
     ports:
       - "8000:8000"
-    depends_on:
-      - mongo_db
 
   frontend:
     build: ./frontend
@@ -30,4 +28,4 @@ services:
       - backend
   
 volumes:
-  mongo_db: {}
+  mongo_db: 
