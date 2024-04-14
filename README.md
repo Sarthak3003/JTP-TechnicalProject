@@ -94,7 +94,7 @@ This dataset was build by augmenting datasets of rainfall, climate and fertilize
 | maize       | 100   |
 | jute        | 100   |
 | cotton      | 100   |
-| Coconut     | 100   |
+| coconut     | 100   |
 | papaya      | 100   |
 | orange      | 100   |
 | apple       | 100   |
