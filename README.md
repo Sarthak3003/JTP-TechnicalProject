@@ -72,7 +72,20 @@ The algorithm is based on the Gaussian Naive Bayes algorithm. [Gaussian Naive Ba
 
 ## Preview
 
-[Include screenshots or a link to a live demo if available.]
+The URLs mentioned with the page title will work after the application is in hte running phase. To run the website, follow the steps in [Running the appliation](#running-the-application) section.
+
+1. LogiIn Page ([http://localhost:3000/login](http://localhost:3000/login))
+[![image.png](https://i.postimg.cc/sgSSN4sx/image.png)](https://postimg.cc/Mn6vcRcJ)
+
+2. Signin Page ([http://localhost:3000/register](http://localhost:3000/register))
+[![image.png](https://i.postimg.cc/rFLL45Qc/image.png)](https://postimg.cc/F1Gq5dMn)
+
+3. Home Page ([http://localhost:3000/](http://localhost:3000/))
+[![image.png](https://i.postimg.cc/d0tKNvy0/image.png)](https://postimg.cc/NKVVL3bh)
+3.1. Crop recommendation 
+[![image.png](https://i.postimg.cc/yW4TW1HX/image.png)](https://postimg.cc/PvyDRkNP)
+3.2 Ideal value of factors for a crop
+[![image.png](https://i.postimg.cc/KjX93r7M/image.png)](https://postimg.cc/bDT0KnBy) 
 
 ## Dataset
 

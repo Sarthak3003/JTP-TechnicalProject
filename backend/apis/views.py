@@ -58,10 +58,10 @@ def recommendation(request):
         nitrogen = int(data["nitrogen"])
         phosphorus = int(data["phosphorus"])
         potassium = int(data["potassium"])
-        ph = int(data["ph"])
-        temperature = int(data["temperature"])
-        humidity = int(data["humidity"])
-        rainfall = int(data["rainfall"])
+        ph = float(data["ph"])
+        temperature = float(data["temperature"])
+        humidity = float(data["humidity"])
+        rainfall = float(data["rainfall"])
 
         # Defining required features
         features = [
@@ -74,9 +74,6 @@ def recommendation(request):
             rainfall,
         ]
         prediction = np.array(features).reshape(1, -1)
-        
-        # # Load the model
-        # model = pkl.load(open("model/model.pkl", "rb"))
 
         crop_data = pd.read_csv("data/Crop_recommendation.csv")
 
