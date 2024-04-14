@@ -53,7 +53,7 @@ Our website relies on some other software packages to work properly. We'll insta
 
 Our website helps farmers decide which crops to plant based on factors like soil type, climate, and location. It's like having a virtual agricultural advisor at your fingertips!
 
-![JTP.png](https://postimg.cc/JDxnd3r1)
+![JTP.png](https://postimg.cc/JDxnd3r1 "user flow diagram")
 
 ## Preview
 
