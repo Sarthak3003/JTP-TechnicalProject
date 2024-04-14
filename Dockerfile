@@ -18,7 +18,7 @@ RUN pip install -r requirements.txt
 COPY . .
 
 # Expose the port Django runs on
-EXPOSE 80
+EXPOSE 8000
 
 # Command to run the Django server
 CMD ["python", "manage.py", "runserver"]
