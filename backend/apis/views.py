@@ -133,8 +133,6 @@ def recommendation(request):
         # Make the prediction
         pred = model.predict(prediction)
 
-        print(pred)
-
         label = {
             1: "Rice",
             2: "Maize",
@@ -187,7 +185,6 @@ def recommendation(request):
 
         if pred[0] in label:
             pred = label[pred[0]]
-            print(pred)
             response = (
                 f"Based on the information, {pred} would be the best crop to grow."
             )
@@ -206,7 +203,7 @@ def get_ideal_values(label):
     filtered_data = dataset[dataset['label'] == label]
 
     # Calculate mean values for other fields
-    ideal_values = filtered_data.drop(columns=['label']).mean().to_dict()
+    ideal_values = round(filtered_data.drop(columns=['label']).mean(), 3).to_dict()
 
     return ideal_values
 
@@ -215,7 +212,7 @@ def get_ideal_values(label):
 def ideal_val(request):
     if request.method == "POST":
         data = request.data
-        item = data["crop"]
+        item = data["crop"].lower()
         val = get_ideal_values(item)
 
         res = {"status": 200, "crop": item, "message": val}
