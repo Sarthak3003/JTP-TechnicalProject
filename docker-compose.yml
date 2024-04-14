@@ -10,12 +10,12 @@ services:
       
   backend:
     build: ./backend
-    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:80"
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     container_name: backend
     volumes:
       - .:/backend
     ports:
-      - "80:80"
+      - "8000:8000"
     depends_on:
       - mongo_db
 
