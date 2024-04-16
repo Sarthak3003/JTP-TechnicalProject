@@ -241,3 +241,7 @@ Now, you should be able to see our website by typing `http://localhost:3000` int
 
 - **Error:** Frontend server fails to start due to missing or corrupted node modules.
 - **Solution:** Make sure you're inside the `frontend` folder when you run the `npm install` command. If that doesn't work, try deleting the `node_modules` folder and running `npm install` again.
+
+
+
+<iframe src="https://scribehow.com/embed/Sarthak_BhanCrop_RecommendationUser_Manual__EPuDl6sAQ8mjNPzuNfz2OQ" width="100%" height="640" allowfullscreen frameborder="0"></iframe>
