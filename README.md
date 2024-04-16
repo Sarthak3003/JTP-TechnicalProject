@@ -18,6 +18,7 @@ This crop recommendation software operates within the broader context of precisi
   - [Description](#description)
   - [Built With](#built-with)
   - [Preview](#preview)
+  - [User Manual](#user-manual)
   - [Dataset](#dataset)
   - [API Documentation](#api-documentation)
   - [Running the Application](#running-the-application)
@@ -94,6 +95,10 @@ The URLs mentioned with the page title will work after the application is in hte
 [![image.png](https://i.postimg.cc/yW4TW1HX/image.png)](https://postimg.cc/PvyDRkNP)
 3.2 Ideal value of factors for a crop
 [![image.png](https://i.postimg.cc/KjX93r7M/image.png)](https://postimg.cc/bDT0KnBy) 
+
+## User Manual
+
+You can visit the [user manual](https://scribehow.com/embed/Sarthak_BhanCrop_RecommendationUser_Manual__EPuDl6sAQ8mjNPzuNfz2OQ) and access the user manual. Or if you want a user manual pdf, you can download the manual from this [link]()
 
 <hr>
 
@@ -242,6 +247,3 @@ Now, you should be able to see our website by typing `http://localhost:3000` int
 - **Error:** Frontend server fails to start due to missing or corrupted node modules.
 - **Solution:** Make sure you're inside the `frontend` folder when you run the `npm install` command. If that doesn't work, try deleting the `node_modules` folder and running `npm install` again.
 
-
-
-<iframe src="https://scribehow.com/embed/Sarthak_BhanCrop_RecommendationUser_Manual__EPuDl6sAQ8mjNPzuNfz2OQ" width="100%" height="640" allowfullscreen frameborder="0"></iframe>
