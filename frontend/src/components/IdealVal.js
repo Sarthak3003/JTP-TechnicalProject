@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react'
-import { styled } from '@mui/material/styles'
 import { Box, Paper, Grid, TextField, Typography, Button } from '@mui/material'
-import Lottie from 'react-lottie'
 import lottie from '../assets/planting.json'
-import { getRec, getIdealVal } from '../services'
+import { getIdealVal } from '../services'
 import Loader from './Loader'
 import { Icon } from '@iconify/react'
 import farming from '../assets/farming.jpg'
 
+// Define the main component
 export default function BasicGrid() {
+  // Define default options for the Lottie animation
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -18,6 +18,7 @@ export default function BasicGrid() {
     },
   }
 
+  // Define a state variable for the form data
   const [json, setJson] = useState({
     crop: '',
   })
@@ -32,6 +33,7 @@ export default function BasicGrid() {
   }
 
   //-------------api integration code----------------
+  // Define a function to handle form submission
   const handleSubmit = () => {
     setLoad(true)
     setTimeout(async function () {

@@ -4,8 +4,6 @@ import Button from '@mui/material/Button'
 import CssBaseline from '@mui/material/CssBaseline'
 import TextField from '@mui/material/TextField'
 import CircularProgress from '@mui/material/CircularProgress'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import Checkbox from '@mui/material/Checkbox'
 import Link from '@mui/material/Link'
 import Paper from '@mui/material/Paper'
 import Box from '@mui/material/Box'
@@ -15,31 +13,17 @@ import Typography from '@mui/material/Typography'
 import { useNavigate } from 'react-router-dom'
 import { register } from './services'
 import { errorHandler, successHandler } from './components/toasts'
-import Loader from './components/Loader'
 
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  )
-}
 
+// Define the main SignInSide component
 export default function SignInSide() {
 
+  // Get the navigate function from useNavigate hook
   const navigate = useNavigate()
+  // Define a state variable to handle loading state
   const [load, setLoad] = useState(false)
 
+  // Define the handleSubmit function that will be called when the form is submitted
   const handleSubmit = async (event) => {
     setLoad(true)
     event.preventDefault()
@@ -60,6 +44,12 @@ export default function SignInSide() {
       setLoad(false)
     }
   }
+  // Return the JSX to render
+  // A Grid container that takes up the full viewport height
+  // The Grid container has two Grid items
+  // The first Grid item is a Paper component that takes up the full height on small screens and 5/12 of the height on medium screens
+  // The Paper component contains a Box component that has a form with two text fields for email and password, a submit button, and a link to the login page
+  // The second Grid item is a background image that takes up the full height on small screens and 7/12 of the height on medium screens
 
   return (
     <Grid container component="main" sx={{ height: '100vh' }}>
@@ -107,10 +97,6 @@ export default function SignInSide() {
               id="password"
               autoComplete="current-password"
             />
-            {/* <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              /> */}
             {load ? (
               <Button
                 type="submit"

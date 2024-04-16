@@ -1,12 +1,13 @@
-import { useState, useEffect } from 'react'
-import { styled } from '@mui/material/styles'
+import { useState } from 'react'
 import { Box, Paper, Grid, TextField, Typography, Button } from '@mui/material'
 import Lottie from 'react-lottie'
 import lottie from '../assets/planting.json'
-import { getRec, getImg } from '../services'
+import { getRec } from '../services'
 import Loader from './Loader'
 
+// Define the main component
 export default function BasicGrid() {
+  // Define default options for the Lottie animation
   const defaultOptions = {
     loop: true,
     autoplay: true,
@@ -16,6 +17,7 @@ export default function BasicGrid() {
     },
   }
 
+  // Define a state variable for the form data
   const [json, setJson] = useState({
     nitrogen: '',
     phosphorus: '',
@@ -26,12 +28,18 @@ export default function BasicGrid() {
     rainfall: '',
   })
 
+  // Define a state variable for the loading state
   const [load, setLoad] = useState(false)
+
+  // Define a state variable for the results
   const [results, setResults] = useState()
 
+  // Define a function to handle changes in the form fields
   const handleChange = (e) => {
     const name = e.target.name
     const value = e.target.value
+    
+    // Update the form data with the new value
     setJson({ ...json, [name]: value })
   }
 
@@ -64,11 +72,6 @@ export default function BasicGrid() {
           </Grid>
           <Grid item xs={6}>
             <Grid container spacing={2}>
-              {/* <Grid item xs={12}>
-                <Typography variant="h5" color="initial">
-                  <b>Enter your stats</b>
-                </Typography>
-              </Grid> */}
               <Grid item xs={12}>
                 <Typography variant="h6" color="initial">
                   Your soil composition
@@ -78,7 +81,6 @@ export default function BasicGrid() {
                 <TextField
                   id="nitrogen"
                   placeholder="Nitrogen level (in %)"
-                  // label="Nitrogen level"
                   name="nitrogen"
                   variant="outlined"
                   fullWidth

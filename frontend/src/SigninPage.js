@@ -4,8 +4,6 @@ import Button from '@mui/material/Button'
 import CssBaseline from '@mui/material/CssBaseline'
 import TextField from '@mui/material/TextField'
 import CircularProgress from '@mui/material/CircularProgress'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import Checkbox from '@mui/material/Checkbox'
 import Link from '@mui/material/Link'
 import Paper from '@mui/material/Paper'
 import Box from '@mui/material/Box'
@@ -15,25 +13,6 @@ import Typography from '@mui/material/Typography'
 import { useNavigate } from 'react-router-dom'
 import { login } from './services'
 import { errorHandler, successHandler } from './components/toasts'
-import Loader from './components/Loader'
-
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  )
-}
 
 export default function SignInSide() {
 
@@ -49,7 +28,6 @@ export default function SignInSide() {
         email: data.get('email'),
         password: data.get('password'),
       })
-      console.log(res)
       localStorage.setItem('jtpToken', res.data.access)
       successHandler('Logged in!')
       setLoad(false)
@@ -61,6 +39,7 @@ export default function SignInSide() {
     }
   }
 
+  // Return the JSX to render
   return (
     <Grid container component="main" sx={{ height: '100vh' }}>
       <CssBaseline />
@@ -124,10 +103,6 @@ export default function SignInSide() {
               id="password"
               autoComplete="current-password"
             />
-            {/* <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              /> */}
             {load ? (
               <Button
                 type="submit"
