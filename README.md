@@ -139,10 +139,11 @@ Now, let's get our website up and running!
 #### Before Starting
 
 The backend of the website which is built on Django Rest Framework will require a `.env` file. This file will contain the "SECRET_KEY" of Django Rest Framework as well as MongoDB connection string.
-
 You can either use an online mongodb cluster connection string or if you are usign docker, then you need to add ` mongodb://mongo_db:27017 ` to assign you mongodb connection string this value.
+A sample Django Secret Key value is provided in the `.env-example` file. You can uncomment the line below "Example Secret Key" in your `.env` file.
 
-A sample `.env` file can be found at: `/backend/.env-example`. You need to create a new file named `.env` name copy the content of `.env-example` to it. Then you need to add values for the fields.
+An example of `.env` file can be found at: `/backend/.env-example`. You need to create a new file named `.env` name copy the content of `.env-example` to it. Then you need to add values for the fields.
+
 
 **NOTE:** By default MongoDB connection string is `"mongodb://mongo_db:27017"` which will work if you are using Docker to deploy it.
 
