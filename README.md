@@ -73,7 +73,10 @@ The algorithm is based on the Gaussian Naive Bayes algorithm. [Gaussian Naive Ba
 ## Built With
 
 * [React.Js](https://react.dev/) - The web framework used for frontend
-* [Django Rest Framework](https://www.django-rest-framework.org/) - The web framework used for backend
+* [Django Rest Framework](https://www.django-rest-framework.org/) - The web framework used for backend. It contains SimpleJWT token based authetication for maintaining sessions.
+  
+<i><b>Note:</b> Since the bacekend APIs use token authentication, it is important to pass bearer/access token in request header.</i>
+
 * [MongoDB](https://www.mongodb.com/) - Used for database
 * [Docker](https://www.docker.com/) - Used to test and deploy the website
 
@@ -98,7 +101,7 @@ The URLs mentioned with the page title will work after the application is in hte
 
 ## User Manual
 
-You can visit the [user manual](https://scribehow.com/embed/Sarthak_BhanCrop_RecommendationUser_Manual__EPuDl6sAQ8mjNPzuNfz2OQ) and access the user manual. Or if you want a user manual pdf, you can download the manual from this [link]()
+You can visit the [user manual](https://scribehow.com/embed/Sarthak_BhanCrop_RecommendationUser_Manual__EPuDl6sAQ8mjNPzuNfz2OQ) and access the user manual. Or if you want a user manual pdf, you can download the manual from this [link](https://drive.google.com/file/d/1Fi7xy7rK52oKO1NcF53eiRvq3Wmitf09/view?usp=sharing)
 
 <hr>
 
