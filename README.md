@@ -47,9 +47,13 @@ Node.js is a JavaScript runtime used for the frontend of our website. You can do
 
 Docker is a tool used for running applications in containers. If you're not familiar with containers, don't worry! It just helps us run our website smoothly. You can download and install Docker from [here](https://docs.docker.com/get-docker/).
 
+<hr>
+
 ### Dependencies
 
 Our website relies on some other software packages to work properly. We'll install these in the next section.
+
+<hr>
 
 ## Description
 
@@ -63,12 +67,16 @@ Once the account is created, the user will have access to the crop recommendatio
 
 The algorithm is based on the Gaussian Naive Bayes algorithm. [Gaussian Naive Bayes](https://en.wikipedia.org/wiki/Naive_Bayes_classifier) is a simple yet effective machine learning algorithm used for classification tasks. It's particularly useful when dealing with continuous features and assumes that the features follow a Gaussian distribution.
 
+<hr>
+
 ## Built With
 
 * [React.Js](https://react.dev/) - The web framework used for frontend
 * [Django Rest Framework](https://www.django-rest-framework.org/) - The web framework used for backend
 * [MongoDB](https://www.mongodb.com/) - Used for database
 * [Docker](https://www.docker.com/) - Used to test and deploy the website
+
+<hr>
 
 ## Preview
 
@@ -86,6 +94,8 @@ The URLs mentioned with the page title will work after the application is in hte
 [![image.png](https://i.postimg.cc/yW4TW1HX/image.png)](https://postimg.cc/PvyDRkNP)
 3.2 Ideal value of factors for a crop
 [![image.png](https://i.postimg.cc/KjX93r7M/image.png)](https://postimg.cc/bDT0KnBy) 
+
+<hr>
 
 ## Dataset
 
@@ -126,11 +136,13 @@ This dataset was build by augmenting datasets of rainfall, climate and fertilize
 | chickpea    | 100   |
 | coffee      | 100   |
 
-
+<hr>
 
 ## API Documentation
 
 Detailed API documentation can be found here: [API Documentation](https://documenter.getpostman.com/view/18905408/2sA3Bj7Ygr)
+
+<hr>
 
 ## Running the Application
 
@@ -185,6 +197,7 @@ To install frontend dependencies, run the following command in the command promp
 
 - ` npm install ` 
 
+<hr>
 
 ### Running via Docker
 
@@ -215,6 +228,8 @@ Open another command prompt window, and navigate to the `frontend` folder inside
 
 
 Now, you should be able to see our website by typing `http://localhost:3000` into your web browser!
+
+<hr>
 
 ## Troubleshooting
 
