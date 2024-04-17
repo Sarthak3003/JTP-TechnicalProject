@@ -158,6 +158,12 @@ Now, let's get our website up and running!
 
 #### Before Starting
 
+- **Clone the repository:**
+
+First, we need to download the files for our website onto our computer. You just need to open command prompt and type in some commands.
+
+` git clone <repository_url> `
+
 The backend of the website which is built on Django Rest Framework will require a `.env` file. This file will contain the "SECRET_KEY" of Django Rest Framework as well as MongoDB connection string.
 You can either use an online mongodb cluster connection string or if you are usign docker, then you need to add ` mongodb://mongo_db:27017 ` to assign you mongodb connection string this value.
 A sample Django Secret Key value is provided in the `.env-example` file. You can uncomment the line below "Example Secret Key" in your `.env` file.
@@ -173,7 +179,7 @@ If you want to know more about online MongoDB database, you can visit [MongoDB A
 
 ### Running via Docker
 
-1. **Build and run the Docker containers:**
+- **Build and run the Docker containers:**
 
 If you installed Docker earlier, this step will be super easy! Just type in one command, and Docker will take care of the rest.
 
@@ -188,21 +194,14 @@ Now, you should be able to see our website by typing `http://localhost:3000` int
 
 ### Installation
 
-1. **Clone the repository:**
-
-First, we need to download the files for our website onto our computer. You just need to open command prompt and type in some commands.
-
-` git clone <repository_url> `
-
-
-2. **Navigate to the project directory:**
+1. **Navigate to the project directory:**
 
 After cloning, we need to go to the folder where our website files are saved.
 
 ` cd JTP-TechnicalProject `
 
 
-3. **Install backend dependencies:**
+2. **Install backend dependencies:**
 
 Next, we'll install some additional modules that our website needs to work properly. To do this, run the following command in the command prompt.
 
