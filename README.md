@@ -213,7 +213,7 @@ Next, we'll install some additional modules that our website needs to work prope
 ` python -m pip install requirements.txt ` 
 
 
-4. **Install frontend dependencies:**
+3. **Install frontend dependencies:**
 
 To install frontend dependencies, either open a new terminal, or run command ` cd.. ` and then once you are in the root folder, run the following command in the command prompt.
 
@@ -223,7 +223,7 @@ To install frontend dependencies, either open a new terminal, or run command ` c
 
 Open 2 terminals, one for backend and one for frontend. In one of the terminal, go to backend directory using the command ` cd backend `.
 
-5. **Start the backend server:**
+4. **Start the backend server:**
 
 If you prefer not to use Docker, that's okay too! We can start the backend server and frontend server separately.
 
@@ -231,7 +231,7 @@ If you prefer not to use Docker, that's okay too! We can start the backend serve
 
 In second terminal, go to frontend directory using the command ` cd frontend `.
 
-6. **Start the frontend server:**
+5. **Start the frontend server:**
 
 Open another command prompt window, and navigate to the `frontend` folder inside our project folder.
 
