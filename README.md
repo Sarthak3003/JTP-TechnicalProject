@@ -199,7 +199,7 @@ First, we need to download the files for our website onto our computer. You just
 
 After cloning, we need to go to the folder where our website files are saved.
 
-` cd crop-recommendation-website `
+` cd JTP-TechnicalProject `
 
 
 3. **Install backend dependencies:**
